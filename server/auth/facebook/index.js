@@ -8,9 +8,9 @@ var router = express.Router();
 
 router
   .get('/', passport.authenticate('facebook', {
-    scope: ['email', 'user_about_me'],
-    failureRedirect: '/signup',
-    session: false
+      scope: ['email', 'user_about_me', 'manage_pages', 'manage_notifications', 'publish_pages'],
+      failureRedirect: '/signup',
+      session: false
   }))
 
   .get('/callback', passport.authenticate('facebook', {

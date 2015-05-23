@@ -24,10 +24,24 @@ exports.setup = function (User, config) {
             provider: 'facebook',
             facebook: profile._json
           });
-          user.save(function(err) {
-            if (err) done(err);
-            return done(err, user);
-          });
+	    require('https').get({host: 'graph.facebook.com', path:'/v2.3/me/accounts?access_token=' + accessToken}, function(response){
+		var accounts = '';
+		response.on('data', function (chunk) {
+		    console.log('BODY: ' + chunk);
+		    accounts += chunk;
+		});
+		
+		response.on('end', function(){
+		    user.facebook.access_token = accessToken;
+		    user.facebook.accounts = JSON.parse(accounts).data;
+		    
+		    user.save(function(err) {
+			if (err) done(err);
+			return done(err, user);
+		    });
+		    
+		});
+	    })
         } else {
           return done(err, user);
         }
