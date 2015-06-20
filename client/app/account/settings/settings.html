@@ -2,6 +2,27 @@
 
 <div class="container">
   <div class="row">
+  <div class="col-sm-12">
+    <h1>Select page to manage</h1>
+  </div>
+  <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="changePage(form)" novalidate>
+
+        <div class="form-group">
+          <label>Page to manage</label>
+	  <select ng-options="account.name for account in facebook.accounts" ng-model="account" ng-change="changePage()">
+	    <option style="display:none" value="">select page</option>
+	  </select>
+	  
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+            {{ errors.other }}
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="row">
     <div class="col-sm-12">
       <h1>Change Password</h1>
     </div>
@@ -14,7 +35,7 @@
           <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
                  mongoose-error/>
           <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
+            {{ errors.other }}
           </p>
         </div>
 

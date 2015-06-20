@@ -8,13 +8,13 @@ angular.module('socibocoApp', [
   'ui.router',
   'ui.bootstrap'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $urlRouterProvider
-      .otherwise('/');
+    .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+	$urlRouterProvider
+	    .otherwise('/');
 
-    $locationProvider.html5Mode(true);
-    $httpProvider.interceptors.push('authInterceptor');
-  })
+	$locationProvider.html5Mode(true);
+	$httpProvider.interceptors.push('authInterceptor');
+    })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
