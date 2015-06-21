@@ -11,7 +11,9 @@ angular.module('socibocoApp', [
     'btford.socket-io',
     'ui.router',
     'ui.bootstrap',
-    'ui.map'
+    'ui.map',
+    'dashboardApp'
+    
 ])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 	$urlRouterProvider
