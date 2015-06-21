@@ -1,12 +1,17 @@
 'use strict';
+function onGoogleReady() {
+    angular.bootstrap(document.getElementById("map"), ['ui.map'])
+}
+
 
 angular.module('socibocoApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'btford.socket-io',
-  'ui.router',
-  'ui.bootstrap'
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'btford.socket-io',
+    'ui.router',
+    'ui.bootstrap',
+    'ui.map'
 ])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 	$urlRouterProvider
