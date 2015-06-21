@@ -17,20 +17,11 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 // Populate DB with sample data
 if(config.seedDB) { require('./config/seed'); }
 
-// var httpProxy = require('http-proxy');
-// var https = require('https');
+// FIXME add proxying
+// var options = require('proxy-by-url')({
+//     '/maps/': { port: 80, host: 'www.google.com', url: 'https://www.google.com/maps/embeded/v1/search' }
+// })
 
-// var options=require('proxy-by-url')({
-// 	'/': { port: 9000, host: 'localhost' }
-//     })
-
-//
-// Just set up your options...
-//
-//
-// ...and then pass them in when you create your proxy.
-//
-//var proxyServer = httpProxy.createServer(options).listen(9001);
 // Setup server
 var app = express();
 
