@@ -1,0 +1,23 @@
+<div class="normal">
+  <p>Please <strong>fill the form</strong></p>
+</div>
+
+<div class="text">
+  <form>
+    <div>
+      <label>
+	First name: 
+	<input type="text" ng-model="firstname" ng-pattern="/[\w\s]*/"/>
+      </label><br/>
+      <label>
+	Last name: 
+	<input type="text" ng-model="lastname" ng-pattern="/[\w\s]*/"/>
+      </label><br/>
+      <label>
+	Email:       
+	<input type="email" ng-model="email"/>
+      </label><br/>
+    </div>
+    <button type="submit">Request</button>
+  </form>
+</div>
