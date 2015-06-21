@@ -4,12 +4,6 @@ angular.module('socibocoApp')
 	$scope.awesomeThings = [];
 	$scope.invitationCode = "";
 
-	$scope.mapOptions = {
-	    center: new google.maps.LatLng(35.784, -78.670),
-	    zoom: 15,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-
 	$http.get('/api/things').success(function(awesomeThings) {
 	    $scope.awesomeThings = awesomeThings;
 	    socket.syncUpdates('thing', $scope.awesomeThings);
