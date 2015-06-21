@@ -9,9 +9,14 @@
  */
 angular
   .module('dashboardApp', [
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
     'oc.lazyLoad',
     'ui.router',
     'ui.bootstrap',
+    'ui.map',
+      
     'angular-loading-bar',
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
@@ -114,13 +119,13 @@ angular
             return $ocLazyLoad.load({
               name:'chart.js',
               files:[
-                'bower_components/angular-chart.js/dist/angular-chart.min.js',
-                'bower_components/angular-chart.js/dist/angular-chart.css'
+                '../bower_components/angular-chart.js/dist/angular-chart.min.js',
+                '../bower_components/angular-chart.js/dist/angular-chart.css'
               ]
             }),
             $ocLazyLoad.load({
                 name:'dashboardApp',
-                files:['dashboard/scripts/controllers/chartContoller.js']
+                files:['scripts/controllers/chartContoller.js']
             })
           }
         }

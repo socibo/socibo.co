@@ -7,5 +7,6 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('MainCtrl', function($scope,$position) {
+    .controller('MainCtrl', function($scope, $position) {
+	//$scope.getCurrentUser = Auth.getCurrentUser;
   });
