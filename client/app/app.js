@@ -11,12 +11,22 @@ angular.module('socibocoApp', [
     'btford.socket-io',
     'ui.router',
     'ui.bootstrap',
-    'ui.map'
+    'ui.map',
+    'oc.lazyLoad',
+    'ui.router',
+    'ui.bootstrap',
+    'angular-loading-bar',    
 ])
-    .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-	$urlRouterProvider
-	    .otherwise('/');
+    .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $ocLazyLoadProvider) {
 
+	$ocLazyLoadProvider.config({
+	    debug:false,
+	    events:true,
+	});
+
+	$urlRouterProvider
+	    .otherwise("/");
+	
 	$locationProvider.html5Mode(true);
 	$httpProvider.interceptors.push('authInterceptor');
     })

@@ -3,15 +3,25 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var crypto = require('crypto');
-var authTypes = ['github', 'twitter', 'facebook', 'google', 'linkedin'];
+var authTypes = ['twitter', 'facebook', 'google', 'linkedin'];
 
 var UserSchema = new Schema({
     name: String,
     email: { type: String, lowercase: true },
+    id: String,
     role: {
       type: String,
       default: 'user'
     },
+    access_token: String,
+    verified: Boolean,
+    updated_time: String,
+    timezone: Number,
+    locale: String,
+    link: String,
+    first_name: String,
+    last_name: String,
+    gender: String,    
     hashedPassword: String,
     provider: String,
     salt: String,

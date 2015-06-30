@@ -1,11 +1,12 @@
+var process = require('process');
 var Facebook = require('facebook-node-sdk');
 
-var facebook = new Facebook({ appID: '753977061366187', secret: '92217d3890fa2cf8b6fea8ecfcd3d319' });
+var facebook = new Facebook({ appID: process.env.FACEBOOK_ID, secret:  process.env.FACEBOOK_SECRET });
 
 
 module.exports = {
     scanPageInfo: function(pageId, access_token, done){
-	console.log("Start ratings scan:" + pageId, access_token);
+	console.log("Start page info scan:" + pageId, access_token);
 	facebook.setAccessToken(access_token)
 	facebook.api('/' + pageId , function(err, data) {
 	    done(err, data);

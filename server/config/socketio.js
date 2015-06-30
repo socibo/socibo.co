@@ -18,6 +18,8 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/pageRating/pageRating.socket').register(socket);
+  require('../api/pageInfo/pageInfo.socket').register(socket);
   require('../api/page/page.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 }
